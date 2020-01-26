@@ -25,6 +25,14 @@ public class PmsBaseAttrInfo implements Serializable {
     @Transient
     List<PmsBaseAttrValue> attrValueList;
 
+    public List<PmsBaseAttrValue> getAttrValueList() {
+        return attrValueList;
+    }
+
+    public void setAttrValueList(List<PmsBaseAttrValue> attrValueList) {
+        this.attrValueList = attrValueList;
+    }
+
     public String getId() {
         return id;
     }
@@ -57,11 +65,4 @@ public class PmsBaseAttrInfo implements Serializable {
         this.isEnabled = isEnabled;
     }
 
-    public List<PmsBaseAttrValue> getAttrValueList() {
-        return attrValueList;
-    }
-
-    public void setAttrValueList(List<PmsBaseAttrValue> attrValueList) {
-        this.attrValueList = attrValueList;
-    }
-}
+  }
