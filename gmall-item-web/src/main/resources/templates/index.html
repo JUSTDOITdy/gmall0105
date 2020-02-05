@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+            <h1>你好</h1>
+            <h2 th:text="${the}">ddddd</h2>
+            <br/>
+
+            <p th:text="${hello}">打底值</p>
+            <span th:if="1==1">1==1</span>
+            <span th:unless="1==1">1==1</span>
+            <table>
+                <tr th:each="str,stat : ${list}">
+                    <td th:text="${str}"></td>
+                    <td th:text="${stat.index}"></td>
+                    <td th:text="${stat.count}"></td>
+                    <td th:text="${stat.size}"></td>
+                    <td th:text="${stat.even}"></td>
+                    <td th:text="${stat.odd}"></td>
+                    <td th:text="${stat.first}"></td>
+                    <td th:text="${stat.last}"></td>
+                </tr>
+            </table>
+            <a th:href="'javascript:a(123)'">点我123</a><br>
+            <a th:href="'javascript:a(\''+${hello}+'\')'">点我</a><br>
+            <!-- js函数的参数，如果是字符串，一定要加单引号，上面两个反斜杠就是给参数的引号-->
+            <a th:href="|javascript:a('${hello}')|">点我</a>
+            <b>页面引入</b><br>
+            <span th:include="indexinner">被引入的页面span</span><br>
+            <div th:include="indexinner">被引入的页面div</div><br>
+            <div th:include="indexinner::innerPart"></div>
+<script language="JavaScript">
+    function a(param) {
+        alert("js函数被调用"+param);
+    }
+</script>
+
+</body>
+</html>
